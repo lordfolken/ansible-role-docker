@@ -11,3 +11,4 @@ docker_apt:
 
 docker_packages: 
   - docker-ce
+  - docker-compose
