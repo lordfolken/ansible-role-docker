@@ -1,0 +1,19 @@
+---
+ - name: Ensure software prerequisites are installed
+   package: 
+     name: "{{ item }}"
+   with_items: '{{ docker_prerequisites }}'
+    
+ - name: enable docker apt repo key
+   apt_key: 
+     url: '{{ docker_apt.key_url }}'
+     id: '{{ docker_apt.id }}'
+
+ - name: Enable docker apt repository
+   apt_repository: 
+     repo: "deb [ arch=amd64 ] {{ docker_apt.apt_repository }} {{ ansible_distribution_release }} stable"
+ 
+ - name: install docker 
+   package:
+     name: '{{ item }}'
+   with_list: '{{ docker_packages }}'

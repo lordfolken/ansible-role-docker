@@ -1,0 +1,26 @@
+---
+ - name: ensure docker group
+   group: 
+     name: '{{ docker_group }}'
+
+ - name: add users to docker group
+   user:
+     name: "{{ item.key }}"
+     append: true
+     groups: "{{ docker_group }}"
+   with_dict: "{{ docker_users }}"
+
+ - name: configure docker storage driver zfs
+   template:
+     src: storage-driver.json.j2
+     dest: '{{ docker_daemon_conf }}'
+     owner: root
+     group: root
+     mode: 0600
+   notify: restart_dockerd 
+
+ - name: ensure docker service running
+   service:
+     name: '{{ docker_service_name }}'
+     enabled: true
+     state: started 

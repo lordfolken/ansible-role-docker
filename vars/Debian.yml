@@ -1,0 +1,13 @@
+docker_prerequisites: 
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - software-properties-common  
+
+docker_apt:
+  key_url: "https://download.docker.com/linux/debian/gpg"
+  id: "0x0EBFCD88"
+  apt_repository: "https://download.docker.com/linux/debian"
+
+docker_packages: 
+  - docker-ce
