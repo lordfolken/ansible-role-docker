@@ -3,3 +3,4 @@ docker_users: {}
 docker_service_name: docker
 docker_storage_driver: btrfs
 docker_daemon_conf: /etc/docker/daemon.json
+docker_mount_point: /var/lib/docker
