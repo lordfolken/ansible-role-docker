@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Philipp Wollschlegel
+  description: docker role with zfs backend
+  license: GPL
+  min_ansible_version: 2.2 
+  platforms:
+  - name: Debian
+    versions:
+    - 8
+    - 9 
+    - 10
+  categories:
+  - docker      
+  - zfs
+dependencies: []
